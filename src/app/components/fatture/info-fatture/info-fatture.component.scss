@@ -1,0 +1,72 @@
+#addfattdiv{
+  padding-bottom: 5rem;
+}
+#addfattcard{
+  padding-bottom: 3rem;
+  text-align: center;
+  width: 90%;
+  background-color: #32323223;
+  margin: 5rem;
+  color: white;
+}
+
+#addclientbtn{
+  background-color: #FFC028;
+  color: black;
+  margin: 2rem;
+}
+#addfattbtn{
+  background-color: #FFC028;
+  color: black;
+}
+#addfattbtn:hover{
+  opacity: 80%;
+}
+#€{
+  margin-right: 3rem;
+}
+::ng-deep .mat-form-field {
+  .mat-input-element {
+      color: white;
+  }
+  .mat-form-field-label {
+      color: white;
+  }
+  .mat-form-field-underline {
+      background-color: white;
+  }
+  .mat-form-field-ripple {
+      background-color: white;
+  }
+  .mat-form-field-required-marker {
+      color: white;
+  }
+}
+::ng-deep .mat-form-field.mat-focused {
+  .mat-form-field-label {
+      color: white;
+  }
+  .mat-form-field-ripple {
+      background-color: white;
+  }
+  .mat-form-field-required-marker {
+      color: white;
+  }
+  .mat-input-element {
+      caret-color: white;
+      color: white;
+  }
+}
+.not-empty-select.mat-selected {
+  color: white !important;
+}
+
+:host .mat-select-value-text {
+  color: white !important;
+}
+::ng-deep .mat-select-value{
+  color: white!important;  }
+  ::placeholder {
+    color: white;
+    opacity: 0.3;
+  }

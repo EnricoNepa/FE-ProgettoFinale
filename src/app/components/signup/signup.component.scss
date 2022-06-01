@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+#caso{
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+}
+.cardsignup{
+  background-color: #212121;
+}
+a{
+  color: #FFC028;
+}
+a:hover{
+  opacity: 80%;
+}
+#signupButton{
+  background-color: #FFC028;
+  color: black;
+}
+#signupButton:hover{
+  opacity: 80%;
+}
+::ng-deep .mat-form-field {
+  .mat-input-element {
+      color: white;
+  }
+  .mat-form-field-label {
+      color: white;
+  }
+  .mat-form-field-underline {
+      background-color: white;
+  }
+  .mat-form-field-ripple {
+      background-color: white;
+  }
+  .mat-form-field-required-marker {
+      color: white;
+  }
+}
+::ng-deep .mat-form-field.mat-focused {
+  .mat-form-field-label {
+      color: white;
+  }
+  .mat-form-field-ripple {
+      background-color: white;
+  }
+  .mat-form-field-required-marker {
+      color: white;
+  }
+  .mat-input-element {
+      caret-color: white;
+      color: white;
+  }
+}
+#homebutton{
+  float: left;
+  background-color: #FFC028;
+}
+#homebutton:hover{
+  opacity: 80%;
+}

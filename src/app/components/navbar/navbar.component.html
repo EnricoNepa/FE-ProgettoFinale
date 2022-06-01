@@ -1,0 +1,14 @@
+<mat-toolbar style="background-color:#212121; color: white;" class="mat-elevation-z6">
+  <span style="color:#FFC028; user-select: none;"><mat-icon style="font-size:0.8em;">polymer</mat-icon>&nbsp;GESTIONALE AZIENDALE</span>
+
+  <div class="spacer"></div>
+
+  <div id="navbaritems">
+    <a class="navbuttons" mat-button [replaceUrl]="true" [routerLink]="['/areaclienti']"><mat-icon>home</mat-icon>&nbsp;Home</a>
+    <a class="navbuttons" mat-button [routerLink]="['/clienti']">Clienti</a>
+    <a class="navbuttons" mat-button [routerLink]="['/fatture']">Fatture</a>
+    <a class="navbuttons" mat-button style="margin-right:1em;" [routerLink]="['/users']">Users</a>
+    <button id="signupbtn" [routerLink]="['/signup']" mat-raised-button>Signup</button>
+    <button id="logoutbtn" (click)="logout()" mat-raised-button>Logout</button>
+  </div>
+</mat-toolbar>

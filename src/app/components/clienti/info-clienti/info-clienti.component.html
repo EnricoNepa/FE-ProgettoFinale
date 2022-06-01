@@ -1,0 +1,247 @@
+<app-navbar></app-navbar>
+<h1 style="text-align:center; color: white; padding-top: 1em; font-size: 5em; font-weight: bolder; color:#ffb300;">AGGIUNGI NUOVO CLIENTE</h1>
+<div id="addclientdiv">
+  <mat-card id="addclientcard">
+
+    <form class="addclientform" [formGroup]="form" (ngSubmit)="submit(form)">
+      <!-- Username -->
+
+      <mat-card-title class="addclienttitle">Informazioni Personali</mat-card-title>
+      <mat-form-field>
+        <mat-label for="partitaIva">Partita Iva</mat-label>
+
+        <input id="partitaIva" required matInput formControlName="partitaIva" type="text"
+          placeholder="Inserisci qui la tua partita Iva" />
+
+        <mat-error color="warn" *ngIf="
+            form.controls['partitaIva'].touched &&
+            form.controls['partitaIva'].errors
+          ">
+          Campo Obbligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Password -->
+
+      <mat-form-field>
+        <mat-label for="ragioneSociale">
+          Ragione Sociale</mat-label>
+        <input matInput id="ragioneSociale" required formControlName="ragioneSociale"
+          type="ragioneSociale" placeholder="inserisci qui la tua ragione Sociale" />
+        <mat-error color="warn" *ngIf="
+            form.controls['ragioneSociale'].touched &&
+            form.controls['ragioneSociale'].errors
+          ">
+          Campo Obbligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Email -->
+
+      <mat-form-field>
+        <mat-label for="email">E-Mail</mat-label>
+        <input matInput id="email" required formControlName="email" type="email"
+          placeholder="Inserisci qui la tua email" />
+        <mat-error color="red" *ngIf="form.controls['email'].touched">
+          Campo obbligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Email Contatto -->
+      <mat-form-field>
+        <mat-label for="emailContatto">E-Mail contatto</mat-label>
+        <input matInput id="emailContatto" required formControlName="emailContatto"
+          type="emailContatto" placeholder="Inserisci qui l'email contatto" />
+        <mat-error color="red" *ngIf="form.controls['emailContatto'].touched">
+          Campo obbligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Tipo Cliente -->
+      <mat-form-field>
+        <mat-label for="tipoCliente">Scegli il tipo cliente</mat-label>
+        <mat-select formControlName="tipoCliente">
+          <mat-option *ngFor="let tipo of tipiCliente" value="{{ tipo }}">{{
+            tipo
+            }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Nome Contatto -->
+
+      <mat-form-field>
+        <mat-label for="nomeContatto">Nome Contatto</mat-label>
+        <input matInput formControlName="nomeContatto" id="nomeContatto" type="text"
+          placeholder="Inserisci qui il nome del Contatto" />
+      </mat-form-field>
+
+      <!-- Cognome Contatto -->
+
+      <mat-form-field>
+        <mat-label for="cognomeContatto">Cognome Contatto</mat-label>
+        <input matInput formControlName="cognomeContatto" id="cognomeContatto" type="text"
+          placeholder="Inserisci qui il cognome del Contatto" />
+      </mat-form-field>
+
+      <!-- Telefono Contatto -->
+
+      <mat-form-field>
+        <mat-label for="telefonoContatto">Telefono Contatto</mat-label>
+        <input matInput formControlName="telefonoContatto" id="telefonoContatto" type="text"
+          placeholder="Inserisci qui il telefono del Contatto" />
+      </mat-form-field>
+
+      <!-- Telefono-->
+
+      <mat-form-field>
+        <mat-label>Telefono
+        </mat-label>
+        <input matInput formControlName="telefono" id="telefono" type="text"
+          placeholder="Inserisci qui il tuo numero telefono" />
+      </mat-form-field>
+
+      <!-- Pec -->
+
+      <mat-form-field>
+        <mat-label for="pec">PEC</mat-label>
+        <input matInput formControlName="pec" id="pec" type="text"
+          placeholder="Inserisci qui la tua PEC" />
+      </mat-form-field>
+
+
+      <mat-card-title class="addclienttitle">Sede Operativa</mat-card-title>
+
+      <!-- indirizzoSedeOperativa -->
+      <div class="addclientform2" formGroupName="indirizzoSedeOperativa">
+        <!-- Via -->
+        <mat-form-field>
+          <mat-label>Via
+          </mat-label>
+          <input matInput formControlName="via" type="text"
+            placeholder="Inserisci qui la tua via" />
+        </mat-form-field>
+
+        <!-- Cap -->
+        <mat-form-field>
+          <mat-label>Cap
+          </mat-label>
+          <input matInput formControlName="cap" type="text"
+            placeholder="Inserisci qui la tua cap" />
+        </mat-form-field>
+
+        <!-- Civico -->
+        <mat-form-field>
+          <mat-label>Civico
+          </mat-label>
+          <input matInput formControlName="civico" type="text"
+            placeholder="Inserisci qui la tua civico" />
+        </mat-form-field>
+
+        <!-- Località -->
+        <mat-form-field>
+          <mat-label>
+            Località
+          </mat-label>
+          <input matInput formControlName="localita" type="text"
+            placeholder="Inserisci qui la tua località" />
+        </mat-form-field>
+
+        <!-- comune -->
+        <div class="addclientform2" formGroupName="comune">
+          <!-- id-->
+          <mat-form-field>
+            <mat-label>
+              Scegli il comune
+            </mat-label>
+
+            <mat-select style="color:white;" formControlName="id">
+              <mat-option value="0"></mat-option>
+              <mat-option *ngFor="let com of this.comuni" value="{{ com.id }}">{{ com.nome }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Provincia -->
+          <mat-form-field>
+            <mat-label>
+              Provincia
+            </mat-label>
+            <mat-select style="color:white;" formControlName="provincia">
+              <mat-option value="0"></mat-option>
+              <mat-option *ngFor="let prov of this.province" value="{{ prov.id }}">{{ prov.nome }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- </div> -->
+
+        </div>
+      </div>
+
+      <!-- <mat-card-title class="addclienttitle">Sede Legale</mat-card-title>
+
+
+      <div class="addclientform2" formGroupName="indirizzoSedeLegale">
+
+        <mat-form-field>
+          <mat-label>Via
+          </mat-label>
+          <input matInput formControlName="via" type="text"
+            placeholder="Inserisci qui la tua via" />
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-label>Cap
+          </mat-label>
+          <input matInput formControlName="cap"type="text"
+            placeholder="Inserisci qui la tua cap" />
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-label>Civico
+          </mat-label>
+          <input matInput formControlName="civico" type="text"
+            placeholder="Inserisci qui la tua civico" />
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-label>
+            Località
+          </mat-label>
+          <input matInput formControlName="localita" type="text"
+            placeholder="Inserisci qui la tua località" />
+        </mat-form-field>
+
+
+        <div class="addclientform2" formGroupName="comune">
+          <mat-form-field>
+            <mat-label>
+              Scegli il comune
+            </mat-label>
+
+            <mat-select style="color:white;" formControlName="id">
+              <mat-option value="0"></mat-option>
+              <mat-option *ngFor="let com of this.comuni" value="{{ com.id }}">{{ com.nome }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field>
+            <mat-label>
+              Provincia
+            </mat-label>
+            <mat-select style="color:white;" formControlName="provincia">
+              <mat-option value="0"></mat-option>
+              <mat-option *ngFor="let prov of this.province" value="{{ prov.id }}">{{ prov.nome }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+      </div> -->
+
+      <button id="addclientbtn" mat-raised-button color="primary" (click)="alert()" type="submit" [disabled]="form.invalid">
+        Aggiungi Cliente
+      </button>
+    </form>
+  </mat-card>
+</div>

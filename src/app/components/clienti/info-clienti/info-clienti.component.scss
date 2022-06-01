@@ -1,0 +1,79 @@
+#addclientdiv{
+  padding-bottom: 5rem;
+}
+#addclientcard{
+  padding-bottom: 3rem;
+  text-align: center;
+  width: 90%;
+  background-color: #32323223;
+  margin: 5rem;
+  color: #FFC028;
+}
+.addclientform{
+  margin: 6rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.addclientform2{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+#addclientbtn{
+  background-color: #FFC028;
+  color: black;
+  margin: 2rem;
+}
+#addclientbtn:hover{
+  opacity: 80%;
+}
+.addclienttitle{
+  padding-top: 2rem;
+  margin: 1rem;
+}
+::ng-deep .mat-form-field {
+  .mat-input-element {
+      color: white;
+  }
+  .mat-form-field-label {
+      color: white;
+  }
+  .mat-form-field-underline {
+      background-color: white;
+  }
+  .mat-form-field-ripple {
+      background-color: white;
+  }
+  .mat-form-field-required-marker {
+      color: white;
+  }
+}
+::ng-deep .mat-form-field.mat-focused {
+  .mat-form-field-label {
+      color: white;
+  }
+  .mat-form-field-ripple {
+      background-color: white;
+  }
+  .mat-form-field-required-marker {
+      color: white;
+  }
+  .mat-input-element {
+      caret-color: white;
+      color: white;
+  }
+}
+.not-empty-select.mat-selected {
+  color: white !important;
+}
+
+:host .mat-select-value-text {
+  color: white !important;
+}
+::ng-deep .mat-select-value{
+  color: white!important;  }
+  ::placeholder {
+    color: white;
+    opacity: 0.3;
+  }

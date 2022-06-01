@@ -1,0 +1,64 @@
+<mat-spinner style="margin:0 auto; margin-top:20%" *ngIf="loading"></mat-spinner>
+<div *ngIf="!loading">
+  <app-navbar></app-navbar>
+  <h1 style="text-align:center; color: white; padding-top: 1em; font-size: 5em; font-weight: bolder; color:#FFC028;">LISTA CLIENTI</h1>
+
+  <button id="addbtn" mat-raised-button [routerLink]="['/clienti/0']">
+    Aggiungi Cliente 	<mat-icon>group_add</mat-icon>
+  </button>
+
+  <table mat-table [dataSource]="dataClienti.content" class="mat-elevation-z8">
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="Id">
+      <th style="color:#FFC028; font-weight: bolder;" mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Ragione Sociale Column -->
+    <ng-container matColumnDef="ragioneSociale">
+      <th style="color:#FFC028; font-weight: bolder;" mat-header-cell *matHeaderCellDef> RAGIONE SOCIALE </th>
+      <td mat-cell *matCellDef="let element"> {{element.ragioneSociale}} </td>
+    </ng-container>
+
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="emailContatto">
+      <th style="color:#FFC028; font-weight: bolder;" mat-header-cell *matHeaderCellDef> EMAIL </th>
+      <td mat-cell *matCellDef="let element"> {{element.emailContatto}} </td>
+    </ng-container>
+
+    <!-- Partita Iva Column -->
+    <ng-container matColumnDef="partitaIva">
+      <th style="color:#FFC028; font-weight: bolder;" mat-header-cell *matHeaderCellDef> PARTITA IVA </th>
+      <td style="color:#207499; font-weight: 500;" mat-cell *matCellDef="let element"> {{element.partitaIva}} </td>
+    </ng-container>
+
+    <!-- Info Button Column -->
+    <ng-container matColumnDef="infoButton">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-raised-cell *matCellDef="let element"><button [routerLink]="['/clienti/',element.id]" id="infoButton" mat-button>INFO</button></td>
+    </ng-container>
+
+    <!-- Fatture Column -->
+    <ng-container matColumnDef="editButton">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-raised-cell *matCellDef="let element"><button [routerLink]="['/clienti/fatture',element.id]" id="editButton" mat-button>FATTURE</button></td>
+    </ng-container>
+
+    <!-- Delete Column -->
+    <ng-container matColumnDef="deleteButton">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-raised-cell *matCellDef="let element"><button id="deleteButton" (click)="delete(element.id)" mat-button>ELIMINA</button></td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator id="matpaginator" [length]="this.dataClienti.totalElements" [pageSizeOptions]="[20]" aria-label="Select Page" (page)="onPageEvent($event)"></mat-paginator>
+
+
+
+</div>

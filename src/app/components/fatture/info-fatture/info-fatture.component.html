@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+<h1 style="text-align:center; color: white; padding-top: 1em; font-size: 5em; font-weight: bolder; color:#FFC028;">INFO FATTURE</h1>
+<div class="container-fluid text-center fs-3 w-100 bg-dark text-light mt-3">
+  <mat-card id="addfattcard">
+    <mat-card-title>
+      <p style="color:#FFC028;" *ngIf="this.checkFatt">INFO FATTURA</p>
+
+      <p *ngIf="!this.checkFatt">Crea Nuova Fattura</p>
+    </mat-card-title>
+
+    <form [formGroup]="form" (ngSubmit)="submit(form)">
+      <!-- data -->
+      <mat-form-field>
+        <mat-label>Data</mat-label>
+
+        <input matInput id="data" required formControlName="data" [matDatepicker]="picker"/>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+
+        <mat-error color="warn" *ngIf="form.controls['data'].errors?.['required'] && form.controls['data'].touched">
+          Campo obbligatorio/formato errato</mat-error>
+      </mat-form-field>
+
+      <!-- numero fattura -->
+      <mat-form-field>
+        <mat-label for="numero">Numero Fattura</mat-label>
+
+        <input matInput id="numero" required formControlName="numero"/>
+        <mat-error color="warn" *ngIf=" form.controls['numero'].errors?.['required']">Campo obbligatorio</mat-error>
+        <mat-error color="warn" *ngIf="form.controls['numero'].errors?.['pattern']">Solo numeri consentiti</mat-error>
+      </mat-form-field>
+
+      <!-- anno fattura -->
+      <mat-form-field>
+        <mat-label for="anno">Anno</mat-label>
+
+        <input matInput id="anno" required formControlName="anno"/>
+        <mat-error color="warn" *ngIf="form.controls['anno'].errors?.['required']">Campo obbligatorio</mat-error>
+        <mat-error color="warn" *ngIf="form.controls['anno'].errors?.['pattern']">sono consentite solo 4 cifre
+        </mat-error>
+      </mat-form-field>
+
+      <!-- importo fattura -->
+      <mat-form-field>
+        <mat-label for="importo">Importo</mat-label>
+
+
+        <input type="number" matInput id="importo" required formControlName="importo"/>
+        <span matSuffix id="€">€</span>
+
+        <mat-error color="warn" *ngIf="form.controls['importo'].errors?.['required']">Campo obbligatorio</mat-error>
+      </mat-form-field>
+
+      <!-- Stato fattura -->
+      <mat-form-field>
+        <mat-label for="stato">Stato Fattura</mat-label>
+
+        <mat-select type="stato" id="stato" required formControlName="stato">
+          <mat-option *ngFor="let stato of this.statiFatt" value="{{stato.id}}">{{stato.nome}}</mat-option>
+        </mat-select>
+        <mat-error color="warn" *ngIf="form.controls['stato'].errors?.['required']">Campo obbligatorio</mat-error>
+      </mat-form-field>
+      <mat-card-footer>
+        <mat-card-actions>
+          <button id="addfattbtn" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+            Aggiungi Fattura
+          </button>
+        </mat-card-actions>
+      </mat-card-footer>
+    </form>
+
+  </mat-card>
+</div>

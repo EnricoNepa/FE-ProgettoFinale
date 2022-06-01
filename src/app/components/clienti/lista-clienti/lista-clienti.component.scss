@@ -1,0 +1,49 @@
+table{
+  width: 90%;
+  background-color: #32323223;
+  margin: 5rem;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+  font-size: 1.3em !important;
+  color: white;
+}
+#matpaginator{
+  background-color: #212121;
+  color: white;
+  font-size: 1.3em;
+}
+
+#infoButton{
+  border: 2px solid #72ab1e;
+  color: white;
+}
+#infoButton:hover{
+  background-color: #72ab1e;
+  color: #000000;
+}
+
+#editButton{
+  border: 2px solid #ffb300;
+  color: white;
+}
+#editButton:hover{
+  background-color: #ffb300;
+  color: #000000;
+}
+
+#deleteButton{
+  border: 2px solid #c32020;
+  color: white;
+}
+#deleteButton:hover{
+  background-color: #c32020;
+  color: #000000;
+}
+#addbtn{
+  background-color: #72ab1e;
+  margin-left: 6rem;
+  margin-top: 3rem;
+}
+#addbtn:hover{
+  opacity: 80%;
+}

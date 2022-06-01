@@ -1,0 +1,24 @@
+<mat-spinner style="margin:0 auto; margin-top:20%" *ngIf="loading"></mat-spinner>
+<div *ngIf="!loading">
+  <app-navbar></app-navbar>
+  <h1 style="text-align:center; color: white; padding-top: 1em; font-size: 5em; font-weight: bolder; color:#FFC028;">LISTA FATTURE</h1>
+  <button mat-raised-button id="addbtn" [routerLink]="['/fatture/0',this.clientId]" *ngIf="this.check">Crea Fattura 	<mat-icon>note_add</mat-icon></button>
+  <div id="fatturelist">
+      <mat-card id="fatturacard" *ngFor="let fatt of this.fatture.content">
+        <mat-card-title>
+          Fattura di {{fatt.cliente.ragioneSociale}} ID-{{fatt.numero}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          Data: {{fatt.data | date:'dd-MM-yyyy'}}
+        </mat-card-subtitle>
+        <mat-card-content>
+          Importo: {{fatt.importo}} €<br>Id: {{fatt.id}} <br>Stato: {{fatt.stato.nome}}
+        </mat-card-content>
+        <mat-card-actions>
+    <button id="editButton" mat-raised-button [routerLink]="['/fatture/',fatt.id]">Modifica</button> <button id="deleteButton" mat-raised-button (click)="delete(fatt.id)">Elimina</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <mat-paginator id="matpaginator" [length]="this.fatture.totalElements" [pageSizeOptions]="[20]" aria-label="Select Page" (page)="onPageEvent($event)"></mat-paginator>
+
+  </div>

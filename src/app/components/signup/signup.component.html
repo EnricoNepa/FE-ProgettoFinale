@@ -1,0 +1,60 @@
+<mat-card class="cardsignup">
+  <button (click)="backClicked()" id="homebutton" mat-raised-button><mat-icon>arrow_back_ios</mat-icon></button>
+  <mat-card-title style="color:#FFC028; padding: 3rem; margin-right: 5rem;">Registrati</mat-card-title>
+<mat-card-content>
+<form [formGroup]="form" (ngSubmit)="signupSubmit(form.value)">
+<p>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Nome" formControlName="nome">
+      <!--<p style="color:red"  *ngIf="
+      form.controls['name'].touched &&
+      form.controls['name'].errors">Campo Obbligatorio</p>-->
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Cognome" formControlName="cognome">
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Username" formControlName="username">
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field>
+    <input type="text" matInput placeholder="E-Mail" formControlName="email">
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field>
+    <input type="password" matInput placeholder="Password" formControlName="password">
+  </mat-form-field>
+</p>
+
+<mat-form-field appearance="fill">
+  <mat-label>Ruolo</mat-label>
+  <mat-select style="color:white;" formControlName="roles">
+    <mat-option value="admin">
+      Admin
+    </mat-option>
+    <mat-option value="user">
+      User
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="button">
+  <button id="signupButton" mat-raised-button color="primary" type="submit" mat-button>Registrati</button>
+</div>
+
+<div id="caso">
+  <p style="color:white;">O in caso, effettua il <a href="http://localhost:4200/login">Login</a></p>
+</div>
+</form>
+</mat-card-content>
+</mat-card>
